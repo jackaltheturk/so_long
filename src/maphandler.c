@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:04:16 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/05 10:33:54 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/05 21:19:26 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,28 @@
 #include "so_long.h"
 #include <fcntl.h>
 #include <stdlib.h>
+
+void	ft_chk_reach(t_data *data, char **temp, int y, int x)
+{
+	if (temp[y][x] == '1')
+		return ;
+	else if (temp[y][x] == 'P')
+		temp[y][x] = '1';
+	else if (data->map[y][x] == 'E')
+	{
+		data->is_closed = 1;
+		temp[y][x] = '1';
+	}
+	else if (data->map[y][x] == 'C')
+	{
+		data->powers--;
+		temp[y][x] = '1';
+	}
+	ft_chk_reach(data, temp, y - 1, x);
+	ft_chk_reach(data, temp, y + 1, x);
+	ft_chk_reach(data, temp, y, x - 1);
+	ft_chk_reach(data, temp, y, x + 1);
+}
 
 void	ft_chk_walls(t_data *data, size_t width, size_t height)
 {
@@ -43,9 +65,9 @@ void	ft_chk_dim(t_data *data)
 	int		flag;
 
 	flag = 0;
-	height = data->map_height;
+	height = data->m_h;
 	width = ft_strlen(data->map[0]);
-	data->map_width = width - 1;
+	data->m_w = width - 1;
 	if (width < 4 || height < 3)
 		ft_errorf("Harita boyutları uygunsuz!!!", data);
 	while (height-- > 0)
@@ -74,7 +96,7 @@ void	ft_map_loader(t_data *data, char *mapname)
 	fd = open(mapname, O_RDONLY);
 	if (fd == -1)
 		ft_error("Böyle bir dosya yok!!!");
-	line = data->map_height;
+	line = data->m_h;
 	while (i < line)
 	{
 		data->map[i] = get_next_line(fd);
@@ -103,7 +125,7 @@ void	ft_maphandler(t_data *data, char *mapname)
 		line++;
 	}
 	close(fd);
-	data->map_height = line;
+	data->m_h = line;
 	data->map = malloc(sizeof(char *) * line);
 	if (!data->map)
 		ft_error("Yetersiz ram miktarı!!!");
