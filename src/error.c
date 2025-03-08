@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:44:09 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 01:18:39 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 01:25:55 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_errorf(char *message, t_data *data)
 	while (height--)
 		free(data->map[height]);
 	free(data->map);
-	write(1, "Error\n",6);
+	write(1, "Error\n", 6);
 	write(1, message, ft_strlen(message));
 	write(1, "\n", 1);
 	exit (1);
