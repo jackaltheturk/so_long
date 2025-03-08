@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:04:43 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/07 22:30:47 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/08 17:27:28 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_pic_loader(void *x, t_pic *p)
 	p->por = mlx_xpm_file_to_image(x, "textures/portal.xpm", p->wid, p->hei);
 	p->c_por = mlx_xpm_file_to_image(x, "textures/closed.xpm", p->wid, p->hei);
 	p->power = mlx_xpm_file_to_image(x, "textures/power.xpm", p->wid, p->hei);
+	p->craft = p->right;
 }
 
 void ft_pic_free(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 06:56:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/07 22:51:29 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/08 17:53:35 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct s_pic
 {
+	void	*craft;
 	void	*c_por;
 	void	*por;
 	void	*spc;
@@ -42,6 +43,7 @@ typedef struct s_data
 	int		cur_y;
 	size_t	m_w;
 	size_t	m_h;
+	int		moves;
 }	t_data;
 
 char	*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:21:06 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/07 23:09:51 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/08 18:19:58 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
 	{
 		while (--w >= 0)
 		{
-			if (data->map[h][w] == 'E' && data->is_closed == 0)
+			if (data->map[h][w] == 'E' && data->powers == 0)
 				mlx_put_image_to_window(mx, wi, pic->por, w * 32, h * 32);
-			else if (data->map[h][w] == 'E' && data->is_closed == 1)
+			else if (data->map[h][w] == 'E' && data->powers != 0)
 				mlx_put_image_to_window(mx, wi, pic->c_por, w * 32, h * 32);
 			else if (data->map[h][w] == 'P')
-				mlx_put_image_to_window(mx, wi, pic->right, w * 32, h * 32);
+				mlx_put_image_to_window(mx, wi, pic->craft, w * 32, h * 32);
 			else if (data->map[h][w] == 'C')
 				mlx_put_image_to_window(mx, wi, pic->power, w * 32, h * 32);
 			else if (data->map[h][w] == '1')
@@ -45,7 +45,7 @@ void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
 
 int key_hook(int keycode, t_data *data) 
 {
-    if (keycode == 65307) // Esc key
+	if (keycode == 65307) // Esc key
         ft_close_win(data);
     if (keycode == 65361) // Left arrow key
         ft_move_left(data);
@@ -73,6 +73,7 @@ int	ft_close_win(t_data *data)
 
 void	ft_action(t_data *data)
 {
+	data->moves = 0;
 	data->mx = mlx_init();
 	if (!data->mx)
 		ft_errorf("Couldn't establish connection", data);
