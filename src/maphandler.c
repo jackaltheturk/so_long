@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:04:16 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/05 21:19:26 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/07 12:02:49 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_chk_reach(t_data *data, char **temp, int y, int x)
 		data->is_closed = 1;
 		temp[y][x] = '1';
 	}
+	else if (data->map[y][x] == '0')
+		temp[y][x] = '1';
 	else if (data->map[y][x] == 'C')
 	{
 		data->powers--;

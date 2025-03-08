@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:07:09 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/07 20:20:30 by etorun           ###   ########.fr       */
+/*   Created: 2025/03/07 22:46:09 by etorun            #+#    #+#             */
+/*   Updated: 2025/03/07 23:04:45 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <unistd.h>
+#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	ft_move_down(t_data *data)
 {
-	t_data	data;
-	t_pic	pics;
-	int		width;
-	int		height;
-
-	if (argc != 2)
-	{
-		write(1, "Error\n", 6);
-		return (1);
-	}
-	ft_mapchecker(&data, argv[1]);
-	data.pics = &pics;
-	pics.hei = &width;
-	pics.wid = &height;
-	ft_action(&data);
-	return (0);
+	data->is_closed = 1;
+	
+}
+void	ft_move_up(t_data *data)
+{
+	data->is_closed = 0;
+}
+void	ft_move_left(t_data *data)
+{
+	data->is_closed = 1;
+}
+void	ft_move_right(t_data *data)
+{
+	data->is_closed = 0;
 }

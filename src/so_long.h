@@ -6,19 +6,19 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 06:56:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/05 21:08:32 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/07 22:51:29 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "../mlx.h"
 # include <stdlib.h>
+# include "../mlx.h"
 
 typedef struct s_pic
 {
-	void	*closed;
-	void	*portal;
+	void	*c_por;
+	void	*por;
 	void	*spc;
 	void	*wall;
 	void	*power;
@@ -32,6 +32,8 @@ typedef struct s_pic
 
 typedef struct s_data
 {
+	void	*mx;
+	void	*wi;
 	t_pic	*pics;
 	char	**map;
 	int		powers;
@@ -55,4 +57,15 @@ void	ft_chk_walls(t_data *data, size_t width, size_t height);
 void	ft_map_loader(t_data *data, char *mapname);
 void	ft_maphandler(t_data *data, char *mapname);
 void	ft_mapchecker(t_data *data, char *mapname);
+void	ft_action(t_data *data);
+int		ft_close_win(t_data *data);
+void	ft_pic_loader(void *x, t_pic *p);
+void	ft_pic_free(t_data *data);
+void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic);
+void	ft_free(t_data *data);
+int		key_hook(int keycode,t_data *data);
+void	ft_move_down(t_data *data);
+void	ft_move_up(t_data *data);
+void	ft_move_left(t_data *data);
+void	ft_move_right(t_data *data);
 #endif

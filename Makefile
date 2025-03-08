@@ -6,7 +6,7 @@ LIBFT = libft/libft.a
 BONUS = 
 SRC = src/so_long.c src/gnl.c src/error.c \
 src/pic_loader.c src/mapchecker.c \
-src/maphandler.c
+src/maphandler.c src/action.c src/moves.c \
 
 BONUS_SRC = 
 
