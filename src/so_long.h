@@ -6,14 +6,13 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 06:56:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/08 17:53:35 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 01:23:21 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include <stdlib.h>
-# include "../mlx.h"
 
 typedef struct s_pic
 {
@@ -65,7 +64,7 @@ void	ft_pic_loader(void *x, t_pic *p);
 void	ft_pic_free(t_data *data);
 void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic);
 void	ft_free(t_data *data);
-int		key_hook(int keycode,t_data *data);
+int		key_hook(int keycode, t_data *data);
 void	ft_move_down(t_data *data);
 void	ft_move_up(t_data *data);
 void	ft_move_left(t_data *data);

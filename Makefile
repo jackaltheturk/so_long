@@ -1,43 +1,41 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBS= -lm -lX11 -lXext
 LIBFT = libft/libft.a
-BONUS = 
-SRC = src/so_long.c src/gnl.c src/error.c \
+LIBMLX = minilibx-linux/libmlx.a
+FT_PRINTF = ft_printf/libftprintf.a
+SRC = src/gnl.c src/so_long.c src/error.c \
 src/pic_loader.c src/mapchecker.c \
 src/maphandler.c src/action.c src/moves.c \
 
-BONUS_SRC = 
-
 OBJ = $(SRC:.c=.o)
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
 	
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(LIBS) libmlx.a
-
-$(BONUS): $(BONUS_OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJ) $(LIBFT)
-
-bonus : $(BONUS)
+$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(FT_PRINTF) $(LIBMLX) $(LIBS) 
 
 $(LIBFT):
 	make -C libft/
 
-all: $(NAME) bonus
+$(FT_PRINTF):
+	make -C ft_printf/
+
+$(LIBMLX):
+	make -C minilibx-linux/
+
+all: $(NAME)
 
 clean:
-	rm -f $(OBJ)
-	rm -f $(BONUS_OBJ)
+	rm -rf $(OBJ)
 	make clean -C libft/
+	make clean -C ft_printf/
+	
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f checker
+	rm -rf $(NAME)
 	make fclean -C libft/
+	make fclean -C ft_printf/
 
 re: fclean $(NAME)
-
-re_bonus: fclean bonus
 
 .PHONY: all clean fclean re

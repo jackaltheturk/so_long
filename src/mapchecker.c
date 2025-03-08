@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:01:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/07 12:01:18 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/08 22:53:24 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_chk_ext(char *mapname)
 
 	len = ft_strlen(mapname);
 	if (ft_strncmp(".ber", mapname + len - 4, 4))
-		ft_error("Hatalı dosya uzantısı!!");
+		ft_error("Invalid file extension!!");
 	else if (len < 5 || *(mapname + len - 5) == '/')
-		ft_error("Hatalı dosya adı!!");
+		ft_error("Invalid file name!!");
 	else
 		return ;
 }
@@ -41,11 +41,11 @@ void	ft_chk_items(t_data *data, char chr)
 	else if (chr == '\0')
 	{
 		if (p != 1)
-			ft_errorf("Haritada formatında 'P' sayısı hatalı!!!", data);
+			ft_errorf("Invalid map,check player count!!!", data);
 		if (e != 1)
-			ft_errorf("Haritada formatında 'E' sayısı hatalı!!!", data);
+			ft_errorf("Invalid map, check exit count!!!", data);
 		if (c < 1)
-			ft_errorf("Haritada formatında 'C' sayısı hatalı!!!", data);
+			ft_errorf("Invalid map,check collectable count!!!", data);
 		data->powers = c;
 		data->is_closed = 0;
 	}
@@ -72,7 +72,7 @@ void	ft_chk_req(t_data *data, size_t row, size_t column)
 			else if (data->map[row][column] == '0')
 				continue ;
 			else
-				ft_errorf("Haritada formatına uygun olmayan karekter!!!", data);
+				ft_errorf("Invalid character in map!!!", data);
 		}
 		column = data->m_w;
 	}
@@ -106,6 +106,6 @@ void	ft_mapreach(t_data *data, int row, int powers)
 		free(temp[row]);
 	free (temp);
 	if (data->powers != 0 || data->is_closed == 0)
-		ft_errorf("Exit veya powerlar ulaşılabilir değil", data);
+		ft_errorf("Exit or Collectables arent reachable!!!", data);
 	data->powers = powers;
 }

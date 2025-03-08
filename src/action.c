@@ -6,14 +6,12 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:21:06 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/08 18:19:58 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 01:18:09 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../mlx.h"
+#include "../minilibx-linux/mlx.h"
 #include "so_long.h"
-#include <stdio.h>
 
 void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
 {
@@ -43,21 +41,21 @@ void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
 	}
 }
 
-int key_hook(int keycode, t_data *data) 
+int	key_hook(int keycode, t_data *data)
 {
-	if (keycode == 65307) // Esc key
-        ft_close_win(data);
-    if (keycode == 65361) // Left arrow key
-        ft_move_left(data);
-    if (keycode == 65362) // Up arrow key
-        ft_move_up(data);
-    if (keycode == 65363) // Right arrow key
-        ft_move_right(data);
-    if (keycode == 65364) // Down arrow key
-        ft_move_down(data);
-    mlx_clear_window(data->mx, data->wi);
-    ft_pic_putter(data->mx, data->wi, data, data->pics);
-    return (0);
+	if (keycode == 65307)
+		ft_close_win(data);
+	if (keycode == 65361)
+		ft_move_left(data);
+	if (keycode == 65362)
+		ft_move_up(data);
+	if (keycode == 65363)
+		ft_move_right(data);
+	if (keycode == 65364)
+		ft_move_down(data);
+	mlx_clear_window(data->mx, data->wi);
+	ft_pic_putter(data->mx, data->wi, data, data->pics);
+	return (0);
 }
 
 int	ft_close_win(t_data *data)
@@ -70,19 +68,23 @@ int	ft_close_win(t_data *data)
 	exit(0);
 }
 
-
 void	ft_action(t_data *data)
 {
 	data->moves = 0;
 	data->mx = mlx_init();
 	if (!data->mx)
 		ft_errorf("Couldn't establish connection", data);
-	data->wi = mlx_new_window(data->mx, data->m_w * 32, data->m_h * 32, "so_long");
+	data->wi
+		= mlx_new_window(data->mx, data->m_w * 32, data->m_h * 32, "so_long");
 	if (!data->wi)
+	{
+		mlx_destroy_display(data->mx);
+		free(data->mx);
 		ft_errorf("Couldn't start window", data);
+	}
 	ft_pic_loader(data->mx, data->pics);
-	ft_pic_putter(data->mx,data->wi, data, data->pics);
+	ft_pic_putter(data->mx, data->wi, data, data->pics);
 	mlx_key_hook(data->wi, key_hook, data);
-	mlx_hook(data->wi, 33, 1L<<17, ft_close_win, data);
+	mlx_hook(data->wi, 33, 1L << 17, ft_close_win, data);
 	mlx_loop(data->mx);
 }

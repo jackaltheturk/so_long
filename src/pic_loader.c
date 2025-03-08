@@ -6,11 +6,12 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:04:43 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/08 17:27:28 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 01:22:55 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "../minilibx-linux/mlx.h"
 
 void	ft_pic_loader(void *x, t_pic *p)
 {
@@ -26,7 +27,7 @@ void	ft_pic_loader(void *x, t_pic *p)
 	p->craft = p->right;
 }
 
-void ft_pic_free(t_data *data)
+void	ft_pic_free(t_data *data)
 {
 	mlx_destroy_image(data->mx, data->pics->spc);
 	mlx_destroy_image(data->mx, data->pics->wall);
