@@ -17,9 +17,9 @@
 
 int	ft_pic_exist(void)
 {
-	char *textures[9];
-	int i;
-	int fd;
+	char	*textures[9];
+	int		i;
+	int		fd;
 
 	i = 0;
 	textures[0] = "textures/spc.xpm";
@@ -31,8 +31,7 @@ int	ft_pic_exist(void)
 	textures[6] = "textures/portal.xpm";
 	textures[7] = "textures/closed.xpm";
 	textures[8] = "textures/power.xpm";
-
-	while(i <= 8)
+	while (i <= 8)
 	{
 		fd = open(textures[i], O_RDONLY);
 		if (fd == -1)
@@ -42,8 +41,6 @@ int	ft_pic_exist(void)
 	}
 	return (1);
 }
-
-
 
 void	ft_pic_loader(void *x, t_pic *p)
 {

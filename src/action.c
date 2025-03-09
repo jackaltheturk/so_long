@@ -82,7 +82,6 @@ void	ft_action(t_data *data)
 		free(data->mx);
 		ft_errorf("Couldn't start window", data);
 	}
-	
 	ft_pic_loader(data->mx, data->pics);
 	ft_pic_putter(data->mx, data->wi, data, data->pics);
 	mlx_key_hook(data->wi, key_hook, data);
