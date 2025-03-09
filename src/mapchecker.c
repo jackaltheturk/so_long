@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:01:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 22:14:37 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 22:23:01 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,3 @@ void	ft_mapchecker(t_data *data, char *mapname)
 	ft_chk_req(data, data->m_h, data->m_w);
 	ft_mapreach(data, data->m_h, data->powers);
 }
-
