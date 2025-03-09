@@ -6,13 +6,12 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:44:09 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 01:25:55 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 22:09:40 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../libft/libft.h"
-#include <stdlib.h>
 #include "so_long.h"
 
 void	ft_error(char *message)

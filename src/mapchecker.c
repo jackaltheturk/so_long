@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:01:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 22:02:15 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 22:14:37 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,6 @@ void	ft_chk_req(t_data *data, size_t row, size_t column)
 	ft_chk_items(data, '\0');
 }
 
-void	ft_mapchecker(t_data *data, char *mapname)
-{
-	ft_chk_ext(mapname);
-	ft_maphandler(data, mapname);
-	ft_map_loader(data, mapname);
-	ft_chk_dim(data);
-	ft_chk_walls(data, data->m_w, data->m_h);
-	ft_chk_req(data, data->m_h, data->m_w);
-	ft_mapreach(data, data->m_h, data->powers);
-}
-
 void	ft_mapreach(t_data *data, int row, int powers)
 {
 	char	**temp;
@@ -111,3 +100,15 @@ void	ft_mapreach(t_data *data, int row, int powers)
 		ft_errorf("Exit or Collectables arent reachable!!!", data);
 	data->powers = powers;
 }
+
+void	ft_mapchecker(t_data *data, char *mapname)
+{
+	ft_chk_ext(mapname);
+	ft_maphandler(data, mapname);
+	ft_map_loader(data, mapname);
+	ft_chk_dim(data);
+	ft_chk_walls(data, data->m_w, data->m_h);
+	ft_chk_req(data, data->m_h, data->m_w);
+	ft_mapreach(data, data->m_h, data->powers);
+}
+

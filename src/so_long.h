@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 06:56:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 21:12:58 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 22:16:44 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,9 @@ typedef struct s_data
 char	*get_next_line(int fd);
 void	ft_error(char *message);
 void	ft_errorf(char *message, t_data *data);
-void	ft_chk_ext(char *mapname);
 void	ft_mapreach(t_data *data, int row, int powers);
 void	ft_chk_reach(t_data *data, char **temp, int x, int y);
 void	ft_chk_dim(t_data *data);
-void	ft_chk_req(t_data *data, size_t row, size_t column);
-void	ft_chk_items(t_data *data, char chr);
 void	ft_chk_walls(t_data *data, size_t width, size_t height);
 void	ft_map_loader(t_data *data, char *mapname);
 void	ft_maphandler(t_data *data, char *mapname);

@@ -6,14 +6,13 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:04:16 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 01:18:59 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 22:10:06 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "so_long.h"
 #include <fcntl.h>
-#include <stdlib.h>
 
 void	ft_chk_reach(t_data *data, char **temp, int y, int x)
 {
