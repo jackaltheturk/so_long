@@ -25,6 +25,12 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
+	if (!ft_pic_exist())
+	{
+		write(1, "Error\n", 6);
+		write(1, "Textures couldn't find\n", 24);
+		return (1);
+	}
 	ft_mapchecker(&data, argv[1]);
 	data.pics = &pics;
 	pics.hei = &width;

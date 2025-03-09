@@ -12,6 +12,38 @@
 
 #include "so_long.h"
 #include "../minilibx-linux/mlx.h"
+#include <fcntl.h>
+#include <unistd.h>
+
+int	ft_pic_exist(void)
+{
+	char *textures[9];
+	int i;
+	int fd;
+
+	i = 0;
+	textures[0] = "textures/spc.xpm";
+	textures[1] = "textures/wall.xpm";
+	textures[2] = "textures/up.xpm";
+	textures[3] = "textures/down.xpm";
+	textures[4] = "textures/left.xpm";
+	textures[5] = "textures/right.xpm";
+	textures[6] = "textures/portal.xpm";
+	textures[7] = "textures/closed.xpm";
+	textures[8] = "textures/power.xpm";
+
+	while(i <= 8)
+	{
+		fd = open(textures[i], O_RDONLY);
+		if (fd == -1)
+			return (0);
+		close(fd);
+		i++;
+	}
+	return (1);
+}
+
+
 
 void	ft_pic_loader(void *x, t_pic *p)
 {

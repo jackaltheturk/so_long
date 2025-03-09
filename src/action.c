@@ -13,7 +13,7 @@
 #include "../minilibx-linux/mlx.h"
 #include "so_long.h"
 
-void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
+static void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
 {
 	int	h;
 	int	w;
@@ -41,7 +41,7 @@ void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic)
 	}
 }
 
-int	key_hook(int keycode, t_data *data)
+static int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == 65307)
 		ft_close_win(data);
@@ -82,6 +82,7 @@ void	ft_action(t_data *data)
 		free(data->mx);
 		ft_errorf("Couldn't start window", data);
 	}
+	
 	ft_pic_loader(data->mx, data->pics);
 	ft_pic_putter(data->mx, data->wi, data, data->pics);
 	mlx_key_hook(data->wi, key_hook, data);

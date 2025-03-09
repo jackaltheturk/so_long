@@ -62,11 +62,10 @@ void	ft_action(t_data *data);
 int		ft_close_win(t_data *data);
 void	ft_pic_loader(void *x, t_pic *p);
 void	ft_pic_free(t_data *data);
-void	ft_pic_putter(void *mx, void *wi, t_data *data, t_pic *pic);
 void	ft_free(t_data *data);
-int		key_hook(int keycode, t_data *data);
 void	ft_move_down(t_data *data);
 void	ft_move_up(t_data *data);
 void	ft_move_left(t_data *data);
 void	ft_move_right(t_data *data);
+int		ft_pic_exist(void);
 #endif
