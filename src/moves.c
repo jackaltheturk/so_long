@@ -27,7 +27,10 @@ void	ft_move_down(t_data *data)
 			ft_printf("Moves = %d\n", data->moves);
 			if (data->map[data->cur_y][data->cur_x - 1]
 				== 'E' && data->powers == 0)
+			{
+				ft_printf("You Won!!");
 				ft_close_win(data);
+			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
 			data->pics->craft = data->pics->down;
 			data->map[data->cur_y][data->cur_x - 1] = 'P';
@@ -51,7 +54,10 @@ void	ft_move_up(t_data *data)
 			ft_printf("Moves = %d\n", data->moves);
 			if (data->map[data->cur_y - 2][data->cur_x - 1]
 				== 'E' && data->powers == 0)
+			{
+				ft_printf("You Won!!");
 				ft_close_win(data);
+			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
 			data->pics->craft = data->pics->up;
 			data->map[data->cur_y - 2][data->cur_x - 1] = 'P';
@@ -75,7 +81,10 @@ void	ft_move_left(t_data *data)
 			ft_printf("Moves = %d\n", data->moves);
 			if (data->map[data->cur_y - 1][data->cur_x - 2]
 				== 'E' && data->powers == 0)
+			{
+				ft_printf("You Won!!");
 				ft_close_win(data);
+			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
 			data->pics->craft = data->pics->left;
 			data->map[data->cur_y - 1][data->cur_x - 2] = 'P';
@@ -98,7 +107,10 @@ void	ft_move_right(t_data *data)
 			ft_printf("Moves = %d\n", data->moves);
 			if (data->map[data->cur_y - 1][data->cur_x]
 				== 'E' && data->powers == 0)
+			{
+				ft_printf("You Won!!");
 				ft_close_win(data);
+			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
 			data->pics->craft = data->pics->right;
 			data->map[data->cur_y - 1][data->cur_x] = 'P';

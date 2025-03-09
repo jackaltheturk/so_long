@@ -11,7 +11,7 @@ src/maphandler.c src/action.c src/moves.c \
 
 OBJ = $(SRC:.c=.o)
 	
-$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
+$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF) $(LIBMLX)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(FT_PRINTF) $(LIBMLX) $(LIBS) 
 
 $(LIBFT):

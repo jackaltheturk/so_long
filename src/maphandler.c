@@ -49,16 +49,16 @@ void	ft_chk_walls(t_data *data, size_t width, size_t height)
 	h = height + 1;
 	while (--w > 0)
 		if (data->map[0][w - 1] != '1')
-			ft_errorf("Invalid map!!!", data);
+			ft_errorf("Invalid map walls!!!", data);
 	while (w++ < width)
 		if (data->map[height - 1][w - 1] != '1')
-			ft_errorf("Invalid map!!!", data);
+			ft_errorf("Invalid map walls!!", data);
 	while (--h > 0)
 		if (data->map[h - 1][0] != '1')
-			ft_errorf("Invalid map!!!", data);
+			ft_errorf("Invalid map walls!!!", data);
 	while (h++ < height)
 		if (data->map[h - 1][width - 1] != '1')
-			ft_errorf("Invalid map!!!", data);
+			ft_errorf("Invalid map walls!!!", data);
 }
 
 void	ft_chk_dim(t_data *data)
@@ -72,19 +72,19 @@ void	ft_chk_dim(t_data *data)
 	width = ft_strlen(data->map[0]);
 	data->m_w = width - 1;
 	if (width < 4 || height < 3)
-		ft_errorf("Invalid map!!!", data);
+		ft_errorf("Invalid map size!!!", data);
 	while (height-- > 0)
 	{
 		if (flag == 0)
 		{
 			if (width - 1 != ft_strlen(data->map[height]))
-				ft_errorf("Invalid map!!!", data);
+				ft_errorf("Invalid map dimensions!!!", data);
 			flag = 1;
 		}
 		else
 		{
 			if (width != ft_strlen(data->map[height]))
-				ft_errorf("Invalid map!!!", data);
+				ft_errorf("Invalid map dimensions!!!", data);
 		}
 	}
 }
