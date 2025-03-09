@@ -30,11 +30,11 @@ clean:
 	make clean -C libft/
 	make clean -C ft_printf/
 	
-
 fclean: clean
 	rm -rf $(NAME)
 	make fclean -C libft/
 	make fclean -C ft_printf/
+	make clean -C minilibx-linux/
 
 re: fclean $(NAME)
 
