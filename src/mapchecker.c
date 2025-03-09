@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:01:33 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/08 22:53:24 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 22:02:15 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void	ft_chk_ext(char *mapname)
 	size_t	len;
 
 	len = ft_strlen(mapname);
-	if (ft_strncmp(".ber", mapname + len - 4, 4))
+	if (len < 5)
+		ft_error("Invalid file name!!");
+	else if (ft_strncmp(".ber", mapname + len - 4, 4))
 		ft_error("Invalid file extension!!");
-	else if (len < 5 || *(mapname + len - 5) == '/')
+	else if (*(mapname + len - 5) == '/')
 		ft_error("Invalid file name!!");
 	else
 		return ;

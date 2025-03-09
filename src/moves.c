@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:46:09 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/09 01:26:36 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 21:06:02 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_move_down(t_data *data)
 			if (data->map[data->cur_y][data->cur_x - 1]
 				== 'E' && data->powers == 0)
 			{
-				ft_printf("You Won!!");
+				ft_printf("You Won!!!\n");
 				ft_close_win(data);
 			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
@@ -55,7 +55,7 @@ void	ft_move_up(t_data *data)
 			if (data->map[data->cur_y - 2][data->cur_x - 1]
 				== 'E' && data->powers == 0)
 			{
-				ft_printf("You Won!!");
+				ft_printf("You Won!!!\n");
 				ft_close_win(data);
 			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
@@ -82,7 +82,7 @@ void	ft_move_left(t_data *data)
 			if (data->map[data->cur_y - 1][data->cur_x - 2]
 				== 'E' && data->powers == 0)
 			{
-				ft_printf("You Won!!");
+				ft_printf("You Won!!!\n");
 				ft_close_win(data);
 			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';
@@ -108,7 +108,7 @@ void	ft_move_right(t_data *data)
 			if (data->map[data->cur_y - 1][data->cur_x]
 				== 'E' && data->powers == 0)
 			{
-				ft_printf("You Won!!");
+				ft_printf("You Won!!!\n");
 				ft_close_win(data);
 			}
 			data->map[data->cur_y - 1][data->cur_x - 1] = '0';

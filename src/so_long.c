@@ -6,7 +6,7 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:07:09 by etorun            #+#    #+#             */
-/*   Updated: 2025/03/07 20:20:30 by etorun           ###   ########.fr       */
+/*   Updated: 2025/03/09 21:13:14 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	if (!ft_pic_exist())
 	{
 		write(1, "Error\n", 6);
-		write(1, "Textures couldn't find\n", 24);
+		write(1, "Texture(s) couldn't be found!!!\n", 33);
 		return (1);
 	}
 	ft_mapchecker(&data, argv[1]);
